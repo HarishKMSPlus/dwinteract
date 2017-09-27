@@ -1,3 +1,8 @@
+insert into Users(user_id,name,password,lastname,email,active) values (1,'manas','manas','das','mamans@com',1);
+insert into role(role_id,role) values (1,'ADMIN');
+insert into user_role(user_id,role_id) values (1,1);
+
+
 insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1) values('1','India','Kerala','Kochi','34/1000, NH 47, Edapally','682024,','Lulu International Shopping Mall Pvt. Ltd.');
 insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1) values('2','USA','Texas','Houston','Westheimer Rd','77056','5085 Westheimer Rd');
 --insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1) values('3','','','','');
