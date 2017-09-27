@@ -27,7 +27,11 @@ public class SplusStoreController {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public Optional<List<Store>> getListOfStore(){	
 	
-    	Optional<List<Store>> listOptional = splusStoreService.getListOfStore();
+		List<Store> listOfString = splusStoreService.getListOfStore();
+		System.out.println("list values : "+listOfString);
+    	Optional<List<Store>> listOptional = Optional.ofNullable(listOfString);
+    	//List<String> listOfString = splusStoreService.getListOfString();
+    	System.out.println("list values : "+listOptional);
 		
 		return listOptional;
 	}

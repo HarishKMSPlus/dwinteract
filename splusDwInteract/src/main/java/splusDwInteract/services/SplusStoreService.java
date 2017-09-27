@@ -7,6 +7,9 @@ import splusDwInteract.model.Store;
 
 public interface SplusStoreService {
 
-	public Optional<List<Store>> getListOfStore();
+	public List<Store> getListOfStore();
+	
+	public List<String> getListOfString();
+	
 	
 }
