@@ -1,5 +1,6 @@
 package splusDwInteract.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,11 +12,21 @@ import splusDwInteract.services.SplusStoreService;
 @Service
 public class SplusStoreServiceImpl implements SplusStoreService{
 
-	public Optional<List<Store>> getListOfStore() {
+	public List<Store> getListOfStore() {
 
-		Optional<List<Store>> optionDumyValue = null;
 		
-		return optionDumyValue;
+		List<Store> list = null;
+		
+		return null;
+	}
+
+	public List<String> getListOfString() {
+		
+		List<String> list = new ArrayList<String>();
+		list.add("123");
+		list.add("456");
+		
+		return list;
 	}
 
 }
