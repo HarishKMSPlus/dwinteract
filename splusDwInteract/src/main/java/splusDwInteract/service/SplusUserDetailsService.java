@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import splusDwInteract.model.SplusUserDetails;
 import splusDwInteract.model.Users;
-import splusDwInteract.repository.UsersRepository;
+import splusDwInteract.repositories.UsersRepository;
 
 @Service
 public class SplusUserDetailsService implements UserDetailsService{
