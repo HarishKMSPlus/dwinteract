@@ -8,10 +8,10 @@ insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1
 --insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1) values('3','','','','');
 --insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1) values('4','','','','');
 
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('1','Fig and Olive','Grocery Stores','2');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('2','Croma','Electronics Stores','1');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('3','Apollo Pharmacy','Chemist stores','1');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('4','Francescas Collections','Garments stores','2');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values(1,'Fig and Olive','Grocery Stores','2');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values(2,'Croma','Electronics Stores','1');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values(3,'Apollo Pharmacy','Chemist stores','1');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values(4,'Francescas Collections','Garments stores','2');
 
 
 insert into product (PRODUCT_ID,PRODUCT_NAME,PRODUCT_DESCRIPTION) values('1','Oil','olive oil,good for health');
@@ -31,7 +31,7 @@ insert into PRODUCT_DETAIL(PRODUCT_DETAIL_ID,PRODUCT_ID,PRODUCT_SIZE,PRODUCT_TYP
 insert into PRODUCT_DETAIL(PRODUCT_DETAIL_ID,PRODUCT_ID,PRODUCT_SIZE,PRODUCT_TYPE,PRODUCT_WIDTH,POS_ID,DW_ID) values('10','4','large','garment','11','p010','d010');
 
 
-insert into inventory(INVENTORY_ID,STORE_ID,PRODUCT_QTY)values('1','1','3');
-insert into inventory(INVENTORY_ID,STORE_ID,PRODUCT_QTY)values('2','2','4');
-insert into inventory(INVENTORY_ID,STORE_ID,PRODUCT_QTY)values('3','1','5');
-insert into inventory(INVENTORY_ID,STORE_ID,PRODUCT_QTY)values('4','2','2');
+insert into inventory(INVENTORY_ID,STORE_ID,PRODUCT_QTY)values('1',1,'3');
+insert into inventory(INVENTORY_ID,STORE_ID,PRODUCT_QTY)values('2',2,'4');
+insert into inventory(INVENTORY_ID,STORE_ID,PRODUCT_QTY)values('3',1,'5');
+insert into inventory(INVENTORY_ID,STORE_ID,PRODUCT_QTY)values('4',2,'2');

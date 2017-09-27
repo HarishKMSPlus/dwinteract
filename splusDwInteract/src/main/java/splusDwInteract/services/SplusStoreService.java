@@ -11,5 +11,5 @@ public interface SplusStoreService {
 	
 	public List<String> getListOfString();
 	
-	
+	public Store getListOfStoreById(int id);
 }

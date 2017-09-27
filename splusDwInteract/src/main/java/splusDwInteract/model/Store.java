@@ -22,7 +22,7 @@ public class Store {
 	@Id
     @GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name="STORE_ID")
-	private String storeId;
+	private int storeId;
 	
 	@Column(name="STORE_NAME")
 	private String storeName;
@@ -34,11 +34,11 @@ public class Store {
 	@JoinColumn(name = "ADDRESS_ID")
 	private Address address;
 	
-	public String getStoreId() {
+	public int getStoreId() {
 		return storeId;
 	}
 	
-	public void setStoreId(String storeId) {
+	public void setStoreId(int storeId) {
 		this.storeId = storeId;
 	}
 	
