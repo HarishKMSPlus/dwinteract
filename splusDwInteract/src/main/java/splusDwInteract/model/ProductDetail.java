@@ -40,6 +40,12 @@ public class ProductDetail {
 	@Column(name="PRODUCT_WIDTH")
 	private String productWidth;
 	
+	@Column(name="POS_ID")
+	private String posId;
+	
+	@Column(name="DW_ID")
+	private String dwId;
+	
 	
 	
 
