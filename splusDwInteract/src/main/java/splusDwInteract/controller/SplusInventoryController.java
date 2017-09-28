@@ -34,4 +34,19 @@ public class SplusInventoryController {
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(value="/listOfInventoryWithId", method=RequestMethod.GET)
+	public ResponseEntity getListOfStoreWithId(){	
+
+		System.out.println("inventory by  Id:");
+
+		Inventory InventoryDetailById = splusInventoryService.getListOfInventoryById("2");
+		
+		if (InventoryDetailById == null) {
+			return new ResponseEntity("No Inventory found", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity(InventoryDetailById, HttpStatus.OK);
+	}
+
 }

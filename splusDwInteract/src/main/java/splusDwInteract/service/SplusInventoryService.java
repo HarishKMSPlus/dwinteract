@@ -8,4 +8,7 @@ public interface SplusInventoryService {
 
 	List<Inventory> getListOfInventory();
 
+	Inventory getListOfInventoryById(String id);
+	
+
 }

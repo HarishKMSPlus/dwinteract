@@ -31,6 +31,62 @@ public class ProductDetail {
 	@JoinColumn(name = "PRODUCT_ID")
 	private Product product;
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public String getProductSize() {
+		return productSize;
+	}
+
+	public void setProductSize(String productSize) {
+		this.productSize = productSize;
+	}
+
+	public String getProductType() {
+		return productType;
+	}
+
+	public void setProductType(String productType) {
+		this.productType = productType;
+	}
+
+	public String getProductWidth() {
+		return productWidth;
+	}
+
+	public void setProductWidth(String productWidth) {
+		this.productWidth = productWidth;
+	}
+
+	public String getPosId() {
+		return posId;
+	}
+
+	public void setPosId(String posId) {
+		this.posId = posId;
+	}
+
+	public String getDwId() {
+		return dwId;
+	}
+
+	public void setDwId(String dwId) {
+		this.dwId = dwId;
+	}
+
 	@Column(name="PRODUCT_SIZE")
 	private String productSize;
 	

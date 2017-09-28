@@ -24,4 +24,10 @@ public class SplusInventoryServiceImpl implements SplusInventoryService{
 		return list;
 	}
 
+	@Override
+	public Inventory getListOfInventoryById(String id) {
+		Inventory inventoryById = splusInventoryRepository.findOne(id);
+		
+		return inventoryById;
+	}
 }
