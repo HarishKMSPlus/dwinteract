@@ -1,4 +1,4 @@
-package splusDwInteract.services;
+package splusDwInteract.service;
 
 import java.util.List;
 import java.util.Optional;

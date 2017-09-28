@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import splusDwInteract.model.Store;
 import splusDwInteract.repositories.SplusStoreRepository;
-import splusDwInteract.services.SplusStoreService;
+import splusDwInteract.service.SplusStoreService;
 
 @Service
 public class SplusStoreServiceImpl implements SplusStoreService{

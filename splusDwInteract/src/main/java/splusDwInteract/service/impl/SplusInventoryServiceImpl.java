@@ -1,14 +1,27 @@
 package splusDwInteract.service.impl;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import splusDwInteract.model.Inventory;
-import splusDwInteract.services.SplusInventoryService;
+import splusDwInteract.model.Store;
+import splusDwInteract.repositories.SplusInventoryRepository;
+import splusDwInteract.repositories.SplusStoreRepository;
+import splusDwInteract.service.SplusInventoryService;
 
+@Service
 public class SplusInventoryServiceImpl implements SplusInventoryService{
-/*
-	public Inventory getInventoryDetail(String id) {
 
-		return null;
+	@Autowired
+	SplusInventoryRepository splusInventoryRepository;
+	
+	@Override
+	public List<Inventory> getListOfInventory() {
+
+		List<Inventory> list = splusInventoryRepository.findAll();
+		return list;
 	}
 
-	*/
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import splusDwInteract.model.Store;
-import splusDwInteract.services.SplusStoreService;
+import splusDwInteract.service.SplusStoreService;
 
 import java.io.Serializable;
 import java.util.ArrayList;

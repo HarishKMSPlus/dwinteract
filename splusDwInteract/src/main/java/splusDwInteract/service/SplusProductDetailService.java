@@ -1,4 +1,4 @@
-package splusDwInteract.services;
+package splusDwInteract.service;
 
 public class SplusProductDetailService {
 
