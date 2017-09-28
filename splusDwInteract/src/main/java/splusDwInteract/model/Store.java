@@ -34,6 +34,14 @@ public class Store {
 	@JoinColumn(name = "ADDRESS_ID")
 	private Address address;
 	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public int getStoreId() {
 		return storeId;
 	}
