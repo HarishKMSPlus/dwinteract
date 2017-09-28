@@ -20,20 +20,24 @@ public class SplusProductController {
 	@Autowired
 	SplusProductService splusProductService; 
 	
+	//method to get all product details
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/getAllProducts", method=RequestMethod.GET)
-	public ResponseEntity getListOfStore(){	
+	public ResponseEntity getListOfProduct(){	
 
-		List<Product> listOfString = splusProductService.getListOfProduct();
+		List<Product> listOfProduct = splusProductService.getListOfProduct();
 		
-		System.out.println("list values : "+listOfString);
+		System.out.println("list values : "+listOfProduct);
 
-		Optional<List<Product>> listOptional = Optional.ofNullable(listOfString);
+		Optional<List<Product>> listOptional = Optional.ofNullable(listOfProduct);
 		System.out.println("list values : "+listOptional);
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
 
+	//method to get particular product detail on the basis of product id
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/listOfProductWithId", method=RequestMethod.GET)
 	public ResponseEntity getListOfStoreWithId(){	

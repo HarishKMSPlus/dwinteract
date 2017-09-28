@@ -20,8 +20,10 @@ public class SplusProductDetailController {
 	@Autowired
 	SplusProductDetailService splusProductDetailService;
 	
+	//To get all productdetail of all product 
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/getAllStore", method=RequestMethod.GET)
+	@RequestMapping(value="/getAllProductDetail", method=RequestMethod.GET)
 	public ResponseEntity getListOfStore(){	
 
 		List<ProductDetail> listOfString = splusProductDetailService.getListOfProductDetails();
@@ -34,6 +36,8 @@ public class SplusProductDetailController {
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
 
+	//To get productdetail of a product on the basis of product id 
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/productDetailWithId", method=RequestMethod.GET)
 	public ResponseEntity getProductDetailsById(){	

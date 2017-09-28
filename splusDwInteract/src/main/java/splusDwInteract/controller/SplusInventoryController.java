@@ -21,6 +21,8 @@ public class SplusInventoryController {
 	@Autowired 
 	SplusInventoryService splusInventoryService;
 	
+        //To get all the inventory details
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/getAllInventory", method=RequestMethod.GET)
 	public ResponseEntity getListOfStore(){	
@@ -34,6 +36,8 @@ public class SplusInventoryController {
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
+	
+	    //to get inventory detail by its id
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/listOfInventoryWithId", method=RequestMethod.GET)

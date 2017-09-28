@@ -21,18 +21,21 @@ import java.util.Optional;
 @RequestMapping("/store")
 public class SplusStoreController implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
 	SplusStoreService splusStoreService;
+	
 
+	
 	@RequestMapping(value="/names", method=RequestMethod.GET)
 	public String getStoreName(){	
 		return "Manas Store";
 	}
+	
+	
+	 //To get all the store details
+	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/getAllStore", method=RequestMethod.GET)
@@ -48,6 +51,8 @@ public class SplusStoreController implements Serializable{
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
 
+	// To get store details of particular store id 
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/listOfStoreWithId", method=RequestMethod.GET)
 	public ResponseEntity getListOfStoreWithId(){	

@@ -11,7 +11,12 @@ import splusDwInteract.model.Store;
 @Repository
 public interface SplusInventoryRepository extends JpaRepository<Inventory, String>{
 
+	// Retrieves all the Inventory details 
+	
 	List<Inventory> findAll();
+	
+	//Inventory detail for particular id
+	
 	Inventory findOne(String id);
 
 }

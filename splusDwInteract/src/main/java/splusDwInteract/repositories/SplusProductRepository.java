@@ -17,7 +17,11 @@ import splusDwInteract.model.Product;
 @Repository
 public interface SplusProductRepository extends JpaRepository<Product, String>{
 
+	//method to get all the product details
+	
 	List<Product> findAll();
+	
+	//method to get the product details of particular product id
 	
 	Product findOne(String i);
 
