@@ -1,7 +1,6 @@
 
 package splusDwInteract.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -26,6 +24,21 @@ public class ProductDetail {
     @GeneratedValue(strategy= GenerationType.AUTO)
 	@Column(name="PRODUCT_DETAIL_ID")
 	private String id;
+
+	@Column(name="PRODUCT_SIZE")
+	private String productSize;
+	
+	@Column(name="PRODUCT_TYPE")
+	private String productType;
+	
+	@Column(name="PRODUCT_WIDTH")
+	private String productWidth;
+	
+	@Column(name="POS_ID")
+	private String posId;
+	
+	@Column(name="DW_ID")
+	private String dwId;
 	
 	@ManyToOne
 	@JoinColumn(name = "PRODUCT_ID")
@@ -86,24 +99,6 @@ public class ProductDetail {
 	public void setDwId(String dwId) {
 		this.dwId = dwId;
 	}
-
-	@Column(name="PRODUCT_SIZE")
-	private String productSize;
-	
-	@Column(name="PRODUCT_TYPE")
-	private String productType;
-	
-	@Column(name="PRODUCT_WIDTH")
-	private String productWidth;
-	
-	@Column(name="POS_ID")
-	private String posId;
-	
-	@Column(name="DW_ID")
-	private String dwId;
-	
-	
-	
 
 	
 }

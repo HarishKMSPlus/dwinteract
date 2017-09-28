@@ -11,5 +11,6 @@ import splusDwInteract.model.ProductDetail;
 public interface SplusProductDetailRepository extends JpaRepository<ProductDetail, Integer>{
 
 	public List<ProductDetail> findAll();
-
+	
+	public ProductDetail findById(String id);
 }

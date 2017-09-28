@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import splusDwInteract.model.ProductDetail;
-import splusDwInteract.model.Store;
 import splusDwInteract.service.SplusProductDetailService;
 
 @RestController
@@ -34,5 +33,16 @@ public class SplusProductDetailController {
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
-	
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(value="/productDetailWithId", method=RequestMethod.GET)
+	public ResponseEntity getProductDetailsById(){	
+
+		ProductDetail productDetailById = splusProductDetailService.getProductDetailById("2");
+		
+		if (productDetailById == null) {
+			return new ResponseEntity("No Inventory found", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity(productDetailById, HttpStatus.OK);
+	}
 }

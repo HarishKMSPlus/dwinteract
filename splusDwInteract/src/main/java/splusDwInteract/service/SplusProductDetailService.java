@@ -7,4 +7,6 @@ import splusDwInteract.model.ProductDetail;
 public interface SplusProductDetailService {
 
 	public List<ProductDetail> getListOfProductDetails();
+
+	public ProductDetail getProductDetailById(String id);
 }

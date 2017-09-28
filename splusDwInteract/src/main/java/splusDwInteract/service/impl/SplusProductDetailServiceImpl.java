@@ -19,6 +19,14 @@ public class SplusProductDetailServiceImpl implements SplusProductDetailService{
 	public List<ProductDetail> getListOfProductDetails() {
 		List<ProductDetail> list = splusProductDetailRepository.findAll();
 		return list;
+	}
+
+	@Override
+	public ProductDetail getProductDetailById(String id) {
+
+		ProductDetail list = splusProductDetailRepository.findById(id);
+		
+		return list;
 	} 
 	
 	
