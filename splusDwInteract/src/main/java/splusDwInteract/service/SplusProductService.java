@@ -8,5 +8,5 @@ public interface SplusProductService {
 
 	public List<Product> getListOfProduct();
 
-	public Product getListOfProductById(int i);
+	//public Product getListOfProductById(String i);
 }
