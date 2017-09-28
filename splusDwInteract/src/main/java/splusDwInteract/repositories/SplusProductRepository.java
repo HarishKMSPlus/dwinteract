@@ -15,10 +15,10 @@ import splusDwInteract.model.Product;
  *
  */
 @Repository
-public interface SplusProductRepository extends JpaRepository<Product, Integer>{
+public interface SplusProductRepository extends JpaRepository<Product, String>{
 
 	List<Product> findAll();
 	
-	//Product findById(String id);
+	Product findOne(String i);
 
 }

@@ -34,18 +34,18 @@ public class SplusProductController {
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
 
-//	@SuppressWarnings({ "rawtypes", "unchecked" })
-//	@RequestMapping(value="/listOfProductWithId", method=RequestMethod.GET)
-//	public ResponseEntity getListOfStoreWithId(){	
-//
-//		System.out.println("in list getAllContainers controller");
-//
-//		Product storeDetailById = splusProductService.getListOfProductById("2");
-//		
-//		if (storeDetailById == null) {
-//			return new ResponseEntity("No Containers found", HttpStatus.NOT_FOUND);
-//		}
-//		return new ResponseEntity(storeDetailById, HttpStatus.OK);
-//	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(value="/listOfProductWithId", method=RequestMethod.GET)
+	public ResponseEntity getListOfStoreWithId(){	
+
+		System.out.println("in list getAllContainers controller");
+
+		Product productDetailById = splusProductService.getListOfProductById("2");
+		
+		if (productDetailById == null) {
+			return new ResponseEntity("No products found", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity(productDetailById, HttpStatus.OK);
+	}
 
 }

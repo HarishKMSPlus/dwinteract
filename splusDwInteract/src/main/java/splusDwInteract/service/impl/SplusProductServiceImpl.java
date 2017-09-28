@@ -22,11 +22,11 @@ public class SplusProductServiceImpl implements SplusProductService{
 		return list;
 	}
 
-//	@Override
-//	public Product getListOfProductById(String i) {
-//		
-//		Product productDetail = splusProductRepository.findById(i);
-//		return productDetail;
-//	}
+	@Override
+	public Product getListOfProductById(String i) {
+		
+		Product productDetail = splusProductRepository.findOne(i);
+		return productDetail;
+	}
 
 }
