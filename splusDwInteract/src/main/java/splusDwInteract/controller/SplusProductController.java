@@ -13,39 +13,54 @@ import org.springframework.web.bind.annotation.RestController;
 import splusDwInteract.model.Product;
 import splusDwInteract.service.SplusProductService;
 
+/**
+ * This is a REST controller,whenever user hits /product into the URL,the call arrives here.
+ *
+ * @author Nehal.Shah
+ *
+ */
+
 @RestController
 @RequestMapping("/product")
 public class SplusProductController {
 
 	@Autowired
-	SplusProductService splusProductService; 
-	
-	//method to get all product details
-	
+	SplusProductService splusProductService;
+
+	/**
+	 * This will get a list all the products
+	 * 
+	 * @return list of products
+	 */
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/getAllProducts", method=RequestMethod.GET)
-	public ResponseEntity getListOfProduct(){	
+	@RequestMapping(value = "/getAllProducts", method = RequestMethod.GET)
+	public ResponseEntity getListOfProduct() {
 
 		List<Product> listOfProduct = splusProductService.getListOfProduct();
-		
-		System.out.println("list values : "+listOfProduct);
+
+		System.out.println("list values : " + listOfProduct);
 
 		Optional<List<Product>> listOptional = Optional.ofNullable(listOfProduct);
-		System.out.println("list values : "+listOptional);
+		System.out.println("list values : " + listOptional);
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
 
-	//method to get particular product detail on the basis of product id
-	
+	/**
+	 * This will get the particular product by product id
+	 * 
+	 * @return product
+	 */
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/listOfProductWithId", method=RequestMethod.GET)
-	public ResponseEntity getListOfStoreWithId(){	
+	@RequestMapping(value = "/listOfProductWithId", method = RequestMethod.GET)
+	public ResponseEntity getListOfStoreWithId() {
 
 		System.out.println("in list getAllContainers controller");
 
 		Product productDetailById = splusProductService.getListOfProductById("2");
-		
+
 		if (productDetailById == null) {
 			return new ResponseEntity("No products found", HttpStatus.NOT_FOUND);
 		}

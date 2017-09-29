@@ -17,6 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This is a REST controller,whenever user hits /store into the URL,the call arrives here.
+ *
+ * @author Dhiraj Bangar
+ *
+ */
+
 @RestController
 @RequestMapping("/store")
 public class SplusStoreController implements Serializable{
@@ -25,18 +32,16 @@ public class SplusStoreController implements Serializable{
 	
 	@Autowired
 	SplusStoreService splusStoreService;
-	
 
-	
 	@RequestMapping(value="/names", method=RequestMethod.GET)
 	public String getStoreName(){	
 		return "Manas Store";
 	}
-	
-	
-	 //To get all the store details
-	
 
+	/** This will get a list of all the stores
+	 * @return list of stores
+	 */
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/getAllStore", method=RequestMethod.GET)
 	public ResponseEntity getListOfStore(){	
@@ -51,7 +56,10 @@ public class SplusStoreController implements Serializable{
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
 
-	// To get store details of particular store id 
+	/**
+	 * This will get the store on the basis of store id
+	 * @return a particular store 
+	 */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/listOfStoreWithId", method=RequestMethod.GET)

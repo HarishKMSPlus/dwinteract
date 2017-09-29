@@ -10,6 +10,11 @@ import splusDwInteract.model.SplusUserDetails;
 import splusDwInteract.model.Users;
 import splusDwInteract.repositories.UsersRepository;
 
+/**
+ * This interface gets the call from the My Secure controller and it contains the business logic to get user details.
+ * @author Manas Das
+ */
+
 @Service
 public class SplusUserDetailsService implements UserDetailsService{
 

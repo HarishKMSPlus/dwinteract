@@ -12,11 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 /**
- * @author dhiraj.bangar
- *
- **/
+ * Its a model class which create product table and its attributes.
+ * @author Nehal.Shah
+ */
+
 @Entity
 //@Data
 @Table(name="PRODUCT")

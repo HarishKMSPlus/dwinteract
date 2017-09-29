@@ -14,11 +14,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 /**
- * @author dhiraj.bangar
- *
- **/
+ * Its a model class which create inventory table and its attributes.
+ * @author Nehal.Shah
+ */
+
 @Entity
 //@Data
 @Table(name="INVENTORY")
@@ -29,8 +29,8 @@ public class Inventory {
 	@Column(name="INVENTORY_ID")
 	private String id;
 	
-	@Column(name="Inventory_Type")
-	private String inventoryType;
+	//@Column(name="Inventory_Type")
+	//private String inventoryType;
 	
 	@OneToOne
 	@JoinColumn(name = "STORE_ID")
@@ -51,7 +51,7 @@ public class Inventory {
 	public void setId(String id) {
 		this.id = id;
 	}
-
+/*
 	public String getInventoryType() {
 		return inventoryType;
 	}
@@ -59,7 +59,7 @@ public class Inventory {
 	public void setInventoryType(String inventoryType) {
 		this.inventoryType = inventoryType;
 	}
-
+*/
 	public Store getStore() {
 		return store;
 	}

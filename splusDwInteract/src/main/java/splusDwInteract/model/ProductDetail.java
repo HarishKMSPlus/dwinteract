@@ -10,11 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 /**
- * @author dhiraj.bangar
- *
- **/
+ * Its a model class which create PRODUCT_DETAIL table and its attributes.
+ * @author Dhiraj Bangar
+ */
+
 @Entity
 //@Data
 @Table(name="PRODUCT_DETAIL")

@@ -14,6 +14,11 @@ import splusDwInteract.model.Inventory;
 import splusDwInteract.model.Store;
 import splusDwInteract.service.SplusInventoryService;
 
+/**
+ * This is a REST controller, whenever user hits /inventory into the URL,the call arrives here.
+ * @author Nehal.Shah
+ */
+
 @RestController
 @RequestMapping("/inventory")
 public class SplusInventoryController {
@@ -21,7 +26,10 @@ public class SplusInventoryController {
 	@Autowired 
 	SplusInventoryService splusInventoryService;
 	
-        //To get all the inventory details
+      /**
+       * This will get a list of all inventories 
+       * @return list of inventories
+       */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/getAllInventory", method=RequestMethod.GET)
@@ -37,7 +45,10 @@ public class SplusInventoryController {
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
 	
-	    //to get inventory detail by its id
+	   /**
+	    * This will get the particular inventory by inventory id
+	    * @return inventory
+	    */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/listOfInventoryWithId", method=RequestMethod.GET)

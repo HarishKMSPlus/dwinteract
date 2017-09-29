@@ -5,15 +5,27 @@ import java.util.Optional;
 
 import splusDwInteract.model.Store;
 
+/**
+ * This interface gets the call from the store controller and it contains the business logic to get store details.
+ * @author Dhiraj Bangar
+ */
+
 public interface SplusStoreService {
-	
-   //method to get list of all stores
-	
+
+	/**
+	 * This method will get a list of all stores
+	 * @return list of stores
+	 */
+
 	public List<Store> getListOfStore();
-	
+
 	public List<String> getListOfString();
-	
-	//method to get store details of particular store id
+
+	/**
+	 * This method will get a list by store_id.
+	 * @param store id
+	 * @return store
+	 */
 	
 	public Store getListOfStoreById(int id);
 }

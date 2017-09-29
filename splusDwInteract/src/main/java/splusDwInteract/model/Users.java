@@ -14,6 +14,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Its a model class which create users table and its attributes.
+ * @author Manas Das
+ */
+
 @Entity
 @Table(name="USERS")
 public class Users {

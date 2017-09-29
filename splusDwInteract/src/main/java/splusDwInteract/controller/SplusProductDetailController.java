@@ -13,37 +13,50 @@ import org.springframework.web.bind.annotation.RestController;
 import splusDwInteract.model.ProductDetail;
 import splusDwInteract.service.SplusProductDetailService;
 
+/**
+ * This is a REST controller,whenever user hits /productDetail into the URL,the call arrives here.
+ *
+ * @author Dhiraj Bangar
+ *
+ */
+
 @RestController
 @RequestMapping("/productDetail")
 public class SplusProductDetailController {
 
 	@Autowired
 	SplusProductDetailService splusProductDetailService;
-	
-	//To get all productdetail of all product 
-	
+
+	/**
+	 * This will get a list all the productdetails
+	 * @return list of all the productdetails
+	 */
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/getAllProductDetail", method=RequestMethod.GET)
-	public ResponseEntity getListOfStore(){	
+	@RequestMapping(value = "/getAllProductDetail", method = RequestMethod.GET)
+	public ResponseEntity getListOfStore() {
 
 		List<ProductDetail> listOfString = splusProductDetailService.getListOfProductDetails();
-		
-		System.out.println("list values : "+listOfString);
+
+		System.out.println("list values : " + listOfString);
 
 		Optional<List<ProductDetail>> listOptional = Optional.ofNullable(listOfString);
-		System.out.println("list values : "+listOptional);
+		System.out.println("list values : " + listOptional);
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
 
-	//To get productdetail of a product on the basis of product id 
-	
+	/**
+	 * This will get the particular productdetail by productdetail id
+	 * @return productdetail
+	 */
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/productDetailWithId", method=RequestMethod.GET)
-	public ResponseEntity getProductDetailsById(){	
+	@RequestMapping(value = "/productDetailWithId", method = RequestMethod.GET)
+	public ResponseEntity getProductDetailsById() {
 
 		ProductDetail productDetailById = splusProductDetailService.getProductDetailById("2");
-		
+
 		if (productDetailById == null) {
 			return new ResponseEntity("No Inventory found", HttpStatus.NOT_FOUND);
 		}

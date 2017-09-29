@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package splusDwInteract.repositories;
 
 import java.util.List;
@@ -11,21 +9,25 @@ import org.springframework.stereotype.Repository;
 import splusDwInteract.model.Store;
 
 /**
- * @author Nehal.Shah
- *
+ * This interface has method declarations to retrieve specific data of store from database.
+ * @author Dhiraj Bangar
  */
 
 @Repository
-public interface SplusStoreRepository extends JpaRepository<Store, Integer>{
+public interface SplusStoreRepository extends JpaRepository<Store, Integer> {
 
-	
-	//method to get all the store details
-	 
+	/**
+	 * This will return list of all the stores
+	 */
+
 	List<Store> findAll();
-	
-	//method to get the store details of a particular store id
-	
+
+	/**
+	 * This will get the store by id
+	 * 
+	 * @param StoreId
+	 * @return store
+	 */
 	Store findOne(int id);
-	
-	
+
 }

@@ -6,16 +6,19 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-/*
+
+/**
  * Author : Dhiraj
  * info   : This is main controller [ It composes a message to the user, inserts it into a map and returns it ]
  */
+
 @RestController
 public class SplusDWInteractionApi {
 
-	/*
+	/**
 	 * info : method is for api call
 	 */
+	
 	@RequestMapping("/login")
 	public Map<String,String> sample(@RequestParam(value="name", defaultValue="World") String productID) {
 		
