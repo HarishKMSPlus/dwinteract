@@ -1,11 +1,13 @@
 package splusDwInteract.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,19 +29,19 @@ public class SplusInventoryController {
 	SplusInventoryService splusInventoryService;
 	
       /**
-       * This will get a list of all inventories 
+       * This will get all inventories 
        * @return list of inventories
        */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/getAllInventory", method=RequestMethod.GET)
-	public ResponseEntity getListOfStore(){	
+	@RequestMapping(method=RequestMethod.GET)
+	public ResponseEntity getAllInventoies(){	
 
-		List<Inventory> listOfString = splusInventoryService.getListOfInventory();
+		List<Inventory> listOfInventory = splusInventoryService.getListOfInventory();
 		
-		System.out.println("list values : "+listOfString);
+		System.out.println("list values : "+listOfInventory);
 
-		Optional<List<Inventory>> listOptional = Optional.ofNullable(listOfString);
+		Optional<List<Inventory>> listOptional = Optional.ofNullable(listOfInventory);
 		System.out.println("list values : "+listOptional);
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
@@ -51,8 +53,8 @@ public class SplusInventoryController {
 	    */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/listOfInventoryWithId", method=RequestMethod.GET)
-	public ResponseEntity getListOfStoreWithId(){	
+	@RequestMapping(value="/InventoryById", method=RequestMethod.GET)
+	public ResponseEntity getInventoryById(){	
 
 		System.out.println("inventory by  Id:");
 
@@ -64,4 +66,5 @@ public class SplusInventoryController {
 		return new ResponseEntity(InventoryDetailById, HttpStatus.OK);
 	}
 
+	
 }

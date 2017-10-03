@@ -14,7 +14,7 @@ import splusDwInteract.model.Store;
  */
 
 @Repository
-public interface SplusStoreRepository extends JpaRepository<Store, Integer> {
+public interface SplusStoreRepository extends JpaRepository<Store, String> {
 
 	/**
 	 * This will return list of all the stores
@@ -28,6 +28,6 @@ public interface SplusStoreRepository extends JpaRepository<Store, Integer> {
 	 * @param StoreId
 	 * @return store
 	 */
-	Store findOne(int id);
+	Store findOne(String id);
 
 }

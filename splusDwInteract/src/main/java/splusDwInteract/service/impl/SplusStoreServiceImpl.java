@@ -34,7 +34,8 @@ public class SplusStoreServiceImpl implements SplusStoreService{
 		return list;
 	}
 
-	public Store getListOfStoreById(int id) {
+
+	public Store getListOfStoreById(String id) {
 	
 		
 		Store storeById = splusStoreRepository.findOne(id);

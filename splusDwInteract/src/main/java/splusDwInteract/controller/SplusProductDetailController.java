@@ -33,14 +33,14 @@ public class SplusProductDetailController {
 	 */
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value = "/getAllProductDetail", method = RequestMethod.GET)
-	public ResponseEntity getListOfStore() {
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity getAllProductDetail() {
 
-		List<ProductDetail> listOfString = splusProductDetailService.getListOfProductDetails();
+		List<ProductDetail> listOfProductDetail = splusProductDetailService.getListOfProductDetails();
 
-		System.out.println("list values : " + listOfString);
+		System.out.println("list values : " + listOfProductDetail);
 
-		Optional<List<ProductDetail>> listOptional = Optional.ofNullable(listOfString);
+		Optional<List<ProductDetail>> listOptional = Optional.ofNullable(listOfProductDetail);
 		System.out.println("list values : " + listOptional);
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
@@ -52,13 +52,13 @@ public class SplusProductDetailController {
 	 */
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value = "/productDetailWithId", method = RequestMethod.GET)
+	@RequestMapping(value = "/productDetailById", method = RequestMethod.GET)
 	public ResponseEntity getProductDetailsById() {
 
 		ProductDetail productDetailById = splusProductDetailService.getProductDetailById("2");
 
 		if (productDetailById == null) {
-			return new ResponseEntity("No Inventory found", HttpStatus.NOT_FOUND);
+			return new ResponseEntity("No ProductDetail found", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity(productDetailById, HttpStatus.OK);
 	}

@@ -32,28 +32,29 @@ public class SplusStoreController implements Serializable{
 	
 	@Autowired
 	SplusStoreService splusStoreService;
-
-	@RequestMapping(value="/names", method=RequestMethod.GET)
-	public String getStoreName(){	
-		return "Manas Store";
-	}
-
+	
+	
 	/** This will get a list of all the stores
 	 * @return list of stores
 	 */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/getAllStore", method=RequestMethod.GET)
-	public ResponseEntity getListOfStore(){	
+	@RequestMapping(method=RequestMethod.GET)
+	public ResponseEntity getAllStores(){	
 
-		List<Store> listOfString = splusStoreService.getListOfStore();
+		List<Store> listOfStore = splusStoreService.getListOfStore();
 		
-		System.out.println("list values : "+listOfString);
+		System.out.println("list values : "+listOfStore);
 
-		Optional<List<Store>> listOptional = Optional.ofNullable(listOfString);
+		Optional<List<Store>> listOptional = Optional.ofNullable(listOfStore);
 		System.out.println("list values : "+listOptional);
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
+	}
+
+	@RequestMapping(value="/names", method=RequestMethod.GET)
+	public String getStoreName(){	
+		return "Manas Store";
 	}
 
 	/**
@@ -62,15 +63,15 @@ public class SplusStoreController implements Serializable{
 	 */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/listOfStoreWithId", method=RequestMethod.GET)
-	public ResponseEntity getListOfStoreWithId(){	
+	@RequestMapping(value="/StoreById", method=RequestMethod.GET)
+	public ResponseEntity getStoreById(){	
 
-		System.out.println("in list getAllContainers controller");
+		System.out.println("in store controller");
 
-		Store storeDetailById = splusStoreService.getListOfStoreById(2);
+		Store storeDetailById = splusStoreService.getListOfStoreById("2");
 		
 		if (storeDetailById == null) {
-			return new ResponseEntity("No Containers found", HttpStatus.NOT_FOUND);
+			return new ResponseEntity("No store found", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity(storeDetailById, HttpStatus.OK);
 	}

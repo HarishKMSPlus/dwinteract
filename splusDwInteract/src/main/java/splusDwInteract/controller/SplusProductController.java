@@ -34,7 +34,7 @@ public class SplusProductController {
 	 */
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value = "/getAllProducts", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity getListOfProduct() {
 
 		List<Product> listOfProduct = splusProductService.getListOfProduct();
@@ -54,17 +54,17 @@ public class SplusProductController {
 	 */
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value = "/listOfProductWithId", method = RequestMethod.GET)
-	public ResponseEntity getListOfStoreWithId() {
+	@RequestMapping(value = "/ProductById", method = RequestMethod.GET)
+	public ResponseEntity getProductById() {
 
-		System.out.println("in list getAllContainers controller");
+		System.out.println("in list getAllProducts ");
 
-		Product productDetailById = splusProductService.getListOfProductById("2");
+		Product productById = splusProductService.getListOfProductById("2");
 
-		if (productDetailById == null) {
+		if (productById == null) {
 			return new ResponseEntity("No products found", HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity(productDetailById, HttpStatus.OK);
+		return new ResponseEntity(productById, HttpStatus.OK);
 	}
 
 }

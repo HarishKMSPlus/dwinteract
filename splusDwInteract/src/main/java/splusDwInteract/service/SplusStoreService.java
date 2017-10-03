@@ -27,5 +27,5 @@ public interface SplusStoreService {
 	 * @return store
 	 */
 	
-	public Store getListOfStoreById(int id);
+	public Store getListOfStoreById(String id);
 }
