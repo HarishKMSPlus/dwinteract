@@ -1,6 +1,5 @@
 package splusDwInteract.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import splusDwInteract.model.Inventory;
-import splusDwInteract.model.Store;
 import splusDwInteract.service.SplusInventoryService;
 
 /**
@@ -66,5 +64,21 @@ public class SplusInventoryController {
 		return new ResponseEntity(InventoryDetailById, HttpStatus.OK);
 	}
 
+	   /**
+	    * This will get the particular inventory by inventory id
+	    * @return inventory
+	    */
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(value="/store/{id}", method=RequestMethod.GET)
+	public ResponseEntity getInventoryByStoreId(@PathVariable String id){	
+
+		System.out.println("inventory by store Id:");
+
+		Inventory inventoryDetailByStoreId = splusInventoryService.getListOfInventoryBystoreId(id);
+		
+		Inventory inventoryDetailById = splusInventoryService.getListOfInventoryById(inventoryDetailByStoreId.getId());
+			
+		return new ResponseEntity(inventoryDetailById, HttpStatus.OK);
+	}
 }

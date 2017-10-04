@@ -26,4 +26,5 @@ public interface SplusInventoryService {
 
 	Inventory getListOfInventoryById(String id);
 
+	Inventory getListOfInventoryBystoreId(String id);
 }
