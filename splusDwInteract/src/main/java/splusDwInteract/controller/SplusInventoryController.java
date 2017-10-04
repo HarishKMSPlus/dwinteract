@@ -51,7 +51,7 @@ public class SplusInventoryController {
 	    */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/inventoryById/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity getInventoryById(@PathVariable String id){	
 
 		System.out.println("inventory by  Id:");

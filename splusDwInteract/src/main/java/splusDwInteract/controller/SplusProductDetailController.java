@@ -57,7 +57,7 @@ public class SplusProductDetailController {
 	 */
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value = "/productDetailById/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity getProductDetailsById(@PathVariable String id) {
 
 		ProductDetail productDetailById = splusProductDetailService.getProductDetailById(id);

@@ -59,7 +59,7 @@ public class SplusProductController {
 	 */
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value = "/productById/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity getProductById(@PathVariable String id) {
 
 		System.out.println("in list getAllProducts ");

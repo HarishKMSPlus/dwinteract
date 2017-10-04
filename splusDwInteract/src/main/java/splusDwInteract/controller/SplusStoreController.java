@@ -64,7 +64,7 @@ public class SplusStoreController implements Serializable{
 	 */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/storeById/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity getStoreById(@PathVariable String id){	
 
 		System.out.println("in store controller");
