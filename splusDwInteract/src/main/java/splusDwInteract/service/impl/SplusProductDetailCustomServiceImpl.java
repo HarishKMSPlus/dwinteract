@@ -23,5 +23,17 @@ public class SplusProductDetailCustomServiceImpl implements SplusProductDetailCu
 		
 		return listOfDetails;
 	}
+//---------------------------------------------------------------------------------------------------------------
+	@Override
+	public ProductDetail getProductDetailByProductId(String pid, String pdid) {
+		
+		ProductDetail productdetail= splusProductDetailCustomRepository.getProductandProductDetail(pid,pdid);
+		/*ProductDetail product;
+		for(ProductDetail pd:productdetail){
+			 product= pd.getProductType();
+			
+		}*/
+		return productdetail;
+	}
 
 }

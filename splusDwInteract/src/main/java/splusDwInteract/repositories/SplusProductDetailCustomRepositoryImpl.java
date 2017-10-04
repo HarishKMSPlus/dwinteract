@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import splusDwInteract.model.Inventory;
+import splusDwInteract.model.Product;
 import splusDwInteract.model.ProductDetail;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -189,6 +190,38 @@ public class SplusProductDetailCustomRepositoryImpl implements SplusProductDetai
 	public <S extends ProductDetail> S findOne(Example<S> arg0) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Transactional(readOnly = true)
+	@Override
+	public ProductDetail getProductandProductDetail(String pid, String pdid) {
+		 Map<String, String> queryParams = new HashMap<>();
+		  queryParams.put("PRODUCT_ID", pid);
+		  queryParams.put("PRODUCT_DETAIL_ID", pdid);
+		  
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList("select pd.PRODUCT_DETAIL_ID,pd.DW_ID,pd.POS_ID,pd.PRODUCT_SIZE,pd.PRODUCT_TYPE,pd.PRODUCT_WIDTH,p.PRODUCT_ID,p.PRODUCT_NAME,p.PRODUCT_DESCRIPTION from PRODUCT_DETAIL pd,product p where p.PRODUCT_ID= :PRODUCT_ID and pd.PRODUCT_DETAIL_ID= :PRODUCT_DETAIL_ID",queryParams);
+
+		ProductDetail productDetail = new ProductDetail();
+		
+		for (Map row : rows) {
+			
+			productDetail.setId(((String)row.get("PRODUCT_DETAIL_ID")));
+			productDetail.setProductSize((String)row.get("PRODUCT_SIZE"));
+			productDetail.setProductType((String)row.get("PRODUCT_TYPE"));
+			productDetail.setProductWidth((String)row.get("PRODUCT_WIDTH"));
+			productDetail.setPosId((String)row.get("POS_ID"));
+			productDetail.setDwId((String)row.get("DW_ID"));
+			
+			Product product=new Product();
+			
+			product.setProductId((String)row.get("PRODUCT_ID"));
+			product.setProductName((String)row.get("PRODUCT_NAME"));
+			product.setProductDescription((String)row.get("PRODUCT_DESCRIPTION"));
+			
+			productDetail.setProduct(product);
+		}
+		
+		return productDetail;
 	}
 
 }

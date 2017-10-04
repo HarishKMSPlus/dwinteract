@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import splusDwInteract.model.Product;
 import splusDwInteract.model.ProductDetail;
+import splusDwInteract.service.SplusProductDetailCustomService;
 import splusDwInteract.service.SplusProductDetailService;
 import splusDwInteract.service.SplusProductService;
 
@@ -30,6 +31,9 @@ public class SplusProductController {
 	@Autowired
 	SplusProductService splusProductService;
 
+	@Autowired
+	SplusProductDetailCustomService splusProductDetailCustomService;
+	
 	@Autowired
 	SplusProductDetailService splusProductDetailService;
 	/**
@@ -72,6 +76,11 @@ public class SplusProductController {
 		return new ResponseEntity(productById, HttpStatus.OK);
 	}
 
+	/**
+	 * This method will get the product of by its product details.
+	 *@param productdetail id
+	 *@return product
+	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
 	public ResponseEntity getProductByProductDetail(@PathVariable String id) {
@@ -84,4 +93,20 @@ public class SplusProductController {
 		}
 		return new ResponseEntity(productDetail.getProduct(), HttpStatus.OK);
 	}
+	
+	//-------------------------------------------------------------------------------------------------------------------
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(value = "{pid}/detail/{pdid}", method = RequestMethod.GET)
+	public ResponseEntity getProductAndProductDetail(@PathVariable String pid,@PathVariable String pdid) {
+		
+		 ProductDetail  productDetail= splusProductDetailCustomService.getProductDetailByProductId(pid,pdid);
+		
+		
+		if (productDetail== null) {
+			return new ResponseEntity("No products found", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity(productDetail, HttpStatus.OK);
+	}
 }
+
