@@ -51,12 +51,12 @@ public class SplusInventoryController {
 	    */
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(value="/InventoryById", method=RequestMethod.GET)
-	public ResponseEntity getInventoryById(){	
+	@RequestMapping(value="/InventoryById/{id}", method=RequestMethod.GET)
+	public ResponseEntity getInventoryById(@PathVariable String id){	
 
 		System.out.println("inventory by  Id:");
 
-		Inventory InventoryDetailById = splusInventoryService.getListOfInventoryById("2");
+		Inventory InventoryDetailById = splusInventoryService.getListOfInventoryById(id);
 		
 		if (InventoryDetailById == null) {
 			return new ResponseEntity("No Inventory found", HttpStatus.NOT_FOUND);

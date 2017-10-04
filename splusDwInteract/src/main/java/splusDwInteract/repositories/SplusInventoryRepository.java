@@ -28,4 +28,5 @@ public interface SplusInventoryRepository extends JpaRepository<Inventory, Strin
 
 	Inventory findOne(String id);
 
+
 }

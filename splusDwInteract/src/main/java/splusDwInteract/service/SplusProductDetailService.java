@@ -25,4 +25,6 @@ public interface SplusProductDetailService {
 	 */
 
 	public ProductDetail getProductDetailById(String id);
+	
+	public ProductDetail getProductByProductDetailId(String id);
 }
