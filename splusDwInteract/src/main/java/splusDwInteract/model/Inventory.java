@@ -1,5 +1,6 @@
 package splusDwInteract.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -43,6 +45,8 @@ public class Inventory {
 	@JoinTable(name = "INVENTORY_PRODUCTDETAIL", joinColumns = { @JoinColumn(name = "INVENTORY_ID") }, inverseJoinColumns = { @JoinColumn(name = "PRODUCT_DETAIL_ID") })
 	private Set<ProductDetail> products;
 	
+	@OneToMany(mappedBy = "inventory")
+	private Set<InventoryProductDetail> inventoryProductDetail = new HashSet<InventoryProductDetail>();
 	
 	public String getId() {
 		return id;
@@ -82,6 +86,14 @@ public class Inventory {
 
 	public void setProducts(Set<ProductDetail> products) {
 		this.products = products;
+	}
+
+	public Set<InventoryProductDetail> getInventoryProductDetail() {
+		return inventoryProductDetail;
+	}
+
+	public void setInventoryProductDetail(Set<InventoryProductDetail> inventoryProductDetail) {
+		this.inventoryProductDetail = inventoryProductDetail;
 	}
 
 	

@@ -1,6 +1,9 @@
 
 package splusDwInteract.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -43,6 +47,9 @@ public class ProductDetail {
 	@ManyToOne
 	@JoinColumn(name = "PRODUCT_ID")
 	private Product product;
+	
+	@OneToMany(mappedBy = "productDetail")
+	private Set<InventoryProductDetail> inventoryProductDetail = new HashSet<InventoryProductDetail>();
 	
 	public String getId() {
 		return id;
@@ -100,5 +107,12 @@ public class ProductDetail {
 		this.dwId = dwId;
 	}
 
-	
+	public Set<InventoryProductDetail> getInventoryProductDetail() {
+		return inventoryProductDetail;
+	}
+
+	public void setInventoryProductDetail(Set<InventoryProductDetail> inventoryProductDetail) {
+		this.inventoryProductDetail = inventoryProductDetail;
+	}
+
 }
