@@ -1,5 +1,6 @@
 package splusDwInteract.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +34,7 @@ public class SplusProductController {
 
 	@Autowired
 	SplusProductDetailCustomService splusProductDetailCustomService;
-	
+
 	@Autowired
 	SplusProductDetailService splusProductDetailService;
 	/**
@@ -84,29 +85,89 @@ public class SplusProductController {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
 	public ResponseEntity getProductByProductDetail(@PathVariable String id) {
-		
+
 		ProductDetail productDetail= splusProductDetailService.getProductByProductDetailId(id);
-		
-		
+
+
 		if (productDetail.getProduct() == null) {
 			return new ResponseEntity("No products found", HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity(productDetail.getProduct(), HttpStatus.OK);
 	}
-	
+
 	//-------------------------------------------------------------------------------------------------------------------
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "{pid}/detail/{pdid}", method = RequestMethod.GET)
 	public ResponseEntity getProductAndProductDetail(@PathVariable String pid,@PathVariable String pdid) {
+
+		ProductDetail  productDetail = splusProductDetailCustomService.getProductDetailByProductId(pid,pdid);
+		ProductDetail  productDetailx = new ProductDetail();
+		Optional<ProductDetail> listOptional = Optional.ofNullable(null);
 		
-		 ProductDetail  productDetail= splusProductDetailCustomService.getProductDetailByProductId(pid,pdid);
-		
-		
-		if (productDetail== null) {
-			return new ResponseEntity("No products found", HttpStatus.NOT_FOUND);
+		if(productDetail.getProduct() != null) {
+
+			if(pid.equals(productDetail.getProduct().getProductId())) {
+				listOptional = Optional.ofNullable(productDetail);
+				return new ResponseEntity(listOptional.get(), HttpStatus.OK);
+			}else {
+				listOptional = Optional.ofNullable(productDetailx);
+				return new ResponseEntity("record not found", HttpStatus.OK);
+			}
+			
+		}else {
+			return new ResponseEntity("record not found", HttpStatus.OK);			
 		}
+	}
+	
+	/**
+	 * This method will get all the product and product details
+	 *@param 
+	 *@return product and details
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public ResponseEntity getProductAndProductDetail() {
+
+		List<ProductDetail> productDetail = splusProductDetailService.getListOfProductDetails();
+		
+		System.out.println(">>>>>>"+productDetail);
+		
+		
+		for (ProductDetail productDetailx : productDetail) {
+			
+			System.out.println("----->>>> product id :: "+productDetailx);
+		}
+
 		return new ResponseEntity(productDetail, HttpStatus.OK);
 	}
+	
+	
+	/**
+	  * This method gets all the product details of that product 
+	  * @param product id
+	  * @return list of product detail
+	  */
+	  @SuppressWarnings({ "rawtypes", "unchecked" })
+	  @RequestMapping(value = "/{id}/detail", method = RequestMethod.GET)
+	  public ResponseEntity getProductDetailByProduct(@PathVariable String id) {
+		  System.out.println(">>>>>>>>>>>hello");
+	   List<ProductDetail> productDetailByProduct= splusProductDetailCustomService.getProductDetailByProduct(id);
+	   
+	   List<ProductDetail> listOfProductDetail = new ArrayList<ProductDetail>(); 
+
+	   for (ProductDetail productDetail : productDetailByProduct) {
+
+	    ProductDetail productDetailByProductId = splusProductDetailService.getProductDetailById(productDetail.getId());
+	    listOfProductDetail.add(productDetailByProductId);
+	   
+	   }
+	       if(listOfProductDetail.isEmpty()){
+	       
+	        return new ResponseEntity("No product detail found",HttpStatus.NOT_FOUND);
+	       }
+	   return new ResponseEntity(listOfProductDetail, HttpStatus.OK);
+
+	  }
 }
 

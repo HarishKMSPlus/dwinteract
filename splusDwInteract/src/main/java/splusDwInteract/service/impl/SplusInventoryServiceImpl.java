@@ -39,7 +39,12 @@ public class SplusInventoryServiceImpl implements SplusInventoryService{
 	public Inventory getListOfInventoryBystoreId(String id) {
 
 		Inventory inventoryById = splusInventoryCustomRepository.findBystoreId(id);
+		if(!"".equals(inventoryById)) {
+			return inventoryById;	
+		}else {
+			return null;
+		}
 		
-		return inventoryById;
+		
 	}
 }

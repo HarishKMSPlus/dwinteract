@@ -1,5 +1,7 @@
 package splusDwInteract.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,26 +11,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "INVENTORY_PRODUCT_DETAIL")
-public class InventoryProductDetail {
+public class InventoryProductDetail implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
+	private long id;
+	private Inventory inventory;
+	private ProductDetail productDetail;
+	private String productQty;
 
 	@Id
     @GeneratedValue	
     @Column(name = "INVENTORY_PD_ID")
-	private long id;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "INVENTORY_ID")
-	private Inventory inventory;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "PRODUCT_DETAIL_ID")
-	private ProductDetail productDetail;
-	
-	@Column(name = "PRODUCT_QTY")
-	private String productQty;
-
 	public long getId() {
 		return id;
 	}
@@ -37,6 +36,11 @@ public class InventoryProductDetail {
 		this.id = id;
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "INVENTORY_ID")
+	@JsonIdentityInfo(
+			  generator = ObjectIdGenerators.PropertyGenerator.class, 
+			  property = "id")
 	public Inventory getInventory() {
 		return inventory;
 	}
@@ -45,6 +49,11 @@ public class InventoryProductDetail {
 		this.inventory = inventory;
 	}
 
+	@ManyToOne
+    @JoinColumn(name = "PRODUCT_DETAIL_ID")
+	@JsonIdentityInfo(
+			  generator = ObjectIdGenerators.PropertyGenerator.class, 
+			  property = "id")
 	public ProductDetail getProductDetail() {
 		return productDetail;
 	}
@@ -53,6 +62,7 @@ public class InventoryProductDetail {
 		this.productDetail = productDetail;
 	}
 	
+	@Column(name = "PRODUCT_QTY")
 	public String getProductQty() {
 		return productQty;
 	}

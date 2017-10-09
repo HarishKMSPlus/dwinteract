@@ -68,22 +68,22 @@ public class SplusProductDetailController {
 		return new ResponseEntity(productDetailById, HttpStatus.OK);
 	}
 	
-	 @SuppressWarnings({ "rawtypes", "unchecked" })
-	 @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
-	 public ResponseEntity getProductDetailByProduct(@PathVariable String id) {
-
-	  List<ProductDetail> productDetailByProduct= splusProductDetailCustomService.getProductDetailByProduct(id);
-	  
-	  List<ProductDetail> listOfProductDetail = new ArrayList<ProductDetail>(); 
-
-	  for (ProductDetail productDetail : productDetailByProduct) {
-
-	   ProductDetail productDetailByProductId = splusProductDetailService.getProductDetailById(productDetail.getId());
-	   listOfProductDetail.add(productDetailByProductId);
-	  
-	  }
-
-	  return new ResponseEntity(listOfProductDetail, HttpStatus.OK);
-
-	 }
+//	 @SuppressWarnings({ "rawtypes", "unchecked" })
+//	 @RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
+//	 public ResponseEntity getProductDetailByProduct(@PathVariable String id) {
+//
+//	  List<ProductDetail> productDetailByProduct= splusProductDetailCustomService.getProductDetailByProduct(id);
+//	  
+//	  List<ProductDetail> listOfProductDetail = new ArrayList<ProductDetail>(); 
+//
+//	  for (ProductDetail productDetail : productDetailByProduct) {
+//
+//	   ProductDetail productDetailByProductId = splusProductDetailService.getProductDetailById(productDetail.getId());
+//	   listOfProductDetail.add(productDetailByProductId);
+//	  
+//	  }
+//
+//	  return new ResponseEntity(listOfProductDetail, HttpStatus.OK);
+//
+//	 }
 }

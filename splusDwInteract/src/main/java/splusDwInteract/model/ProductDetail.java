@@ -14,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 /**
  * Its a model class which create PRODUCT_DETAIL table and its attributes.
  * @author Dhiraj Bangar
@@ -49,6 +52,9 @@ public class ProductDetail {
 	private Product product;
 	
 	@OneToMany(mappedBy = "productDetail")
+	@JsonIdentityInfo(
+			  generator = ObjectIdGenerators.PropertyGenerator.class, 
+			  property = "id")
 	private Set<InventoryProductDetail> inventoryProductDetail = new HashSet<InventoryProductDetail>();
 	
 	public String getId() {

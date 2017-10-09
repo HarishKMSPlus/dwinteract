@@ -199,7 +199,7 @@ public class SplusProductDetailCustomRepositoryImpl implements SplusProductDetai
 		  queryParams.put("PRODUCT_ID", pid);
 		  queryParams.put("PRODUCT_DETAIL_ID", pdid);
 		  
-		List<Map<String, Object>> rows = jdbcTemplate.queryForList("select pd.PRODUCT_DETAIL_ID,pd.DW_ID,pd.POS_ID,pd.PRODUCT_SIZE,pd.PRODUCT_TYPE,pd.PRODUCT_WIDTH,p.PRODUCT_ID,p.PRODUCT_NAME,p.PRODUCT_DESCRIPTION from PRODUCT_DETAIL pd,product p where p.PRODUCT_ID= :PRODUCT_ID and pd.PRODUCT_DETAIL_ID= :PRODUCT_DETAIL_ID",queryParams);
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList("select pd.PRODUCT_DETAIL_ID,pd.DW_ID,pd.POS_ID,pd.PRODUCT_SIZE,pd.PRODUCT_TYPE,pd.PRODUCT_WIDTH,pd.PRODUCT_ID,p.PRODUCT_NAME,p.PRODUCT_DESCRIPTION from PRODUCT_DETAIL pd,product p where p.PRODUCT_ID= :PRODUCT_ID and pd.PRODUCT_DETAIL_ID= :PRODUCT_DETAIL_ID",queryParams);
 
 		ProductDetail productDetail = new ProductDetail();
 		

@@ -37,13 +37,17 @@ final class SplusInventoryCustomRepositoryImpl implements SplusInventoryCustomRe
 		Map<String, String> queryParams = new HashMap<>();
 		
 		queryParams.put("searchTerm", "");
-
-		Inventory searchResults = jdbcTemplate.queryForObject("SELECT INVENTORY_ID AS id,PRODUCT_QTY AS productQty FROM inventory WHERE STORE_ID = "+id+" LIMIT 1",
+		List<Inventory> searchResults = jdbcTemplate.query("SELECT INVENTORY_ID AS id,PRODUCT_QTY AS productQty FROM inventory WHERE STORE_ID = "+id,
 				queryParams,
 				new BeanPropertyRowMapper<>(Inventory.class)
 				);
+		if(!searchResults.isEmpty()) {
+			
+			return searchResults.get(0);
+		}else {
+			return null;
+		}
 		
-		return searchResults;
 	}
 
 	@Override

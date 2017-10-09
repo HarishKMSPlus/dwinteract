@@ -25,18 +25,18 @@ public class SplusInventoryController {
 
 	@Autowired 
 	SplusInventoryService splusInventoryService;
-	
-      /**
-       * This will get all inventories 
-       * @return list of inventories
-       */
-	
+
+	/**
+	 * This will get all inventories 
+	 * @return list of inventories
+	 */
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity getAllInventoies(){	
 
 		List<Inventory> listOfInventory = splusInventoryService.getListOfInventory();
-		
+
 		System.out.println("list values : "+listOfInventory);
 
 		Optional<List<Inventory>> listOptional = Optional.ofNullable(listOfInventory);
@@ -44,12 +44,12 @@ public class SplusInventoryController {
 
 		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
-	
-	   /**
-	    * This will get the particular inventory by inventory id
-	    * @return inventory
-	    */
-	
+
+	/**
+	 * This will get the particular inventory by inventory id
+	 * @return inventory
+	 */
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity getInventoryById(@PathVariable String id){	
@@ -57,18 +57,20 @@ public class SplusInventoryController {
 		System.out.println("inventory by  Id:");
 
 		Inventory InventoryDetailById = splusInventoryService.getListOfInventoryById(id);
-		
+
+		Optional<Inventory> listOptional = Optional.ofNullable(InventoryDetailById);
+
 		if (InventoryDetailById == null) {
-			return new ResponseEntity("No Inventory found", HttpStatus.NOT_FOUND);
+			return new ResponseEntity("No record found", HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity(InventoryDetailById, HttpStatus.OK);
+		return new ResponseEntity(listOptional.get(), HttpStatus.OK);
 	}
 
-	   /**
-	    * This will get the particular inventory by inventory id
-	    * @return inventory
-	    */
-	
+	/**
+	 * This will get the particular inventory by inventory id
+	 * @return inventory
+	 */
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/store/{id}", method=RequestMethod.GET)
 	public ResponseEntity getInventoryByStoreId(@PathVariable String id){	
@@ -76,9 +78,20 @@ public class SplusInventoryController {
 		System.out.println("inventory by store Id:");
 
 		Inventory inventoryDetailByStoreId = splusInventoryService.getListOfInventoryBystoreId(id);
-		
-		Inventory inventoryDetailById = splusInventoryService.getListOfInventoryById(inventoryDetailByStoreId.getId());
-			
-		return new ResponseEntity(inventoryDetailById, HttpStatus.OK);
+		System.out.println(">>>>>>>>>"+inventoryDetailByStoreId);
+		Inventory inventoryDetailById = null;
+		Optional<Inventory> listOptional = Optional.ofNullable(null);
+
+		if(inventoryDetailByStoreId != null) {
+			System.out.println("in ifffffff");
+			inventoryDetailById = splusInventoryService.getListOfInventoryById(inventoryDetailByStoreId.getId());
+			listOptional = Optional.ofNullable(inventoryDetailById);
+
+			return new ResponseEntity(listOptional.get(), HttpStatus.NOT_FOUND);
+
+		}else {
+			System.out.println("in elseeeeeee");
+			return new ResponseEntity("No record found", HttpStatus.NOT_FOUND);
+		}
 	}
 }

@@ -16,6 +16,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 /**
  * Its a model class which create inventory table and its attributes.
  * @author Nehal.Shah
@@ -41,11 +44,14 @@ public class Inventory {
 	@Column(name="PRODUCT_QTY")
 	private String productQty;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "INVENTORY_PRODUCTDETAIL", joinColumns = { @JoinColumn(name = "INVENTORY_ID") }, inverseJoinColumns = { @JoinColumn(name = "PRODUCT_DETAIL_ID") })
-	private Set<ProductDetail> products;
+//	@ManyToMany(cascade = CascadeType.ALL)
+//	@JoinTable(name = "INVENTORY_PRODUCTDETAIL", joinColumns = { @JoinColumn(name = "INVENTORY_ID") }, inverseJoinColumns = { @JoinColumn(name = "PRODUCT_DETAIL_ID") })
+//	private Set<ProductDetail> products;
 	
 	@OneToMany(mappedBy = "inventory")
+	@JsonIdentityInfo(
+			  generator = ObjectIdGenerators.PropertyGenerator.class, 
+			  property = "id")
 	private Set<InventoryProductDetail> inventoryProductDetail = new HashSet<InventoryProductDetail>();
 	
 	public String getId() {
@@ -80,13 +86,13 @@ public class Inventory {
 		this.productQty = productQty;
 	}
 
-	public Set<ProductDetail> getProducts() {
-		return products;
-	}
-
-	public void setProducts(Set<ProductDetail> products) {
-		this.products = products;
-	}
+//	public Set<ProductDetail> getProducts() {
+//		return products;
+//	}
+//
+//	public void setProducts(Set<ProductDetail> products) {
+//		this.products = products;
+//	}
 
 	public Set<InventoryProductDetail> getInventoryProductDetail() {
 		return inventoryProductDetail;
