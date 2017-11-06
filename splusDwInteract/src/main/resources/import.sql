@@ -87,3 +87,45 @@ insert into INVENTORY_PRODUCT_DETAIL(INVENTORY_PD_ID,INVENTORY_ID,PRODUCT_DETAIL
 insert into INVENTORY_PRODUCT_DETAIL(INVENTORY_PD_ID,INVENTORY_ID,PRODUCT_DETAIL_ID,PRODUCT_QTY)values('16','2','4','4');
 
 
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('1','25518769','Posh');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('2','25518769','Venus and Mars');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('3','25518769','Eryn Brinié');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('4','25518769','Maryam Nassir Zadeh');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('5','25696630','Bill Hallman');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('6','25696630','Jeffrey');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('7','25695305','Kick Pleat');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('8','25695305','Gallery D');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('9','25695305','Gretta Luxe');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('10','25695305','Crush Boutique');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('11','25695305','The Velvet Fly');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('12','25592613','Hampden Clothing');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('13','25592613','Blake');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('14','25591979','Ikram');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('15','25591979','Handle with Care');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('16','25591979','Le Dress');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('17','25762759','Jinny');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('18','25762759','V.O.D. Boutique');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('19','25591090','Aloha Rag');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('20','25591090','Heist');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('21','25589004','Confederacy');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('22','25589004','TenOverSix');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('23','25589004','American Apparel Factory Store');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('24','25518958','Scout');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('25','25518958','American Rag');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('26','25565088','The Webster');
+
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('27','25502038','Green Gras');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('28','25502038','Alchemist');
+ 
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('29','25697095','Fly Boutique');
+insert into TEST (STORE_ID,PROD_ID,STORE_NAME)values('30','25697095','Miss Sixty');
