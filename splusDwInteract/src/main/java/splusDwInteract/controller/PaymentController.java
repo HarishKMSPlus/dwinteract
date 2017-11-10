@@ -82,7 +82,7 @@ public class PaymentController {
 			Payment payment = paypalService.executePayment(paymentId, payerId);
 			if(payment.getState().equals("approved")){
 				//return "success manas";
-				return new ResponseEntity("Done in service", HttpStatus.OK);
+				return new ResponseEntity(payment, HttpStatus.OK);
 			}
 		} catch (PayPalRESTException e) {
 			log.error(e.getMessage());
