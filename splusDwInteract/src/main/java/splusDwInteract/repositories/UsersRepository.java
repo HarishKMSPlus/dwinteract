@@ -18,6 +18,7 @@ public interface UsersRepository extends JpaRepository<Users, Integer>{
 	 * @return Users
 	 */
 	
+	
 	Users findByName(String username);
 
 }
