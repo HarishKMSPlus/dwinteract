@@ -11,13 +11,13 @@ insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1
 insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1) values('6','UK','ENGLAND','LONDON','Hammersmith,','09881','King Street');
 insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1) values('7','INDIA','MUMBAI','Goregaon',' Yashodham, Goregaon East,','08081','Western Express Hwy');
 
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('1','Fig and Olive','Grocery Stores','1');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('2','Croma','Electronics Stores','2');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('3','Apollo Pharmacy','Chemist stores','3');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('4','Francescas Collections','Garments stores','4');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('5','Westfield London','Sports stores','5');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('6','Kings Mall','Footwears stores','6');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID)values('7','Arhaus Furniture','Furniture','7');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('1','Fig and Olive','Grocery Stores','1',5,'25502038');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('2','Croma','Electronics Stores','2',130,'25518769');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('3','Apollo Pharmacy','Chemist stores','3',0,'25565088');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('4','Francescas Collections','Garments stores','4',1,'25518958');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('5','Westfield London','Sports stores','5',100,'5555555');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('6','Kings Mall','Footwears stores','6',1022,'66666666');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('7','Arhaus Furniture','Furniture','7',10222,'77777777');
 
 
 insert into product (PRODUCT_ID,PRODUCT_NAME,PRODUCT_DESCRIPTION) values('1','Oil','olive oil,good for health');

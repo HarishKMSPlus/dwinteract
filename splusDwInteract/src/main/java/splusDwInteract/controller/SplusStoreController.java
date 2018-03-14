@@ -76,5 +76,26 @@ public class SplusStoreController implements Serializable{
 		}
 		return new ResponseEntity(storeDetailById, HttpStatus.OK);
 	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
+	@RequestMapping(value="/mytest",method=RequestMethod.GET)
+	public ResponseEntity getStoreById(){	
+
+		System.out.println("in store controller");
+
+		Store storeDetailById2 = splusStoreService.getListOfStoreById("2");
+		Store storeDetailById3 = splusStoreService.getListOfStoreById("3");
+		Store storeDetailById4 = splusStoreService.getListOfStoreById("4");
+		
+		List<Store> storeList=new ArrayList<Store>();
+		storeList.add(storeDetailById2);
+		storeList.add(storeDetailById3);
+		storeList.add(storeDetailById4);
+		
+		if (storeList == null) {
+			return new ResponseEntity("No store found", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity(storeList, HttpStatus.OK);
+	}
 
 }

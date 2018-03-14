@@ -30,6 +30,13 @@ public class Store {
 	@Column(name="STORE_TYPE")
 	private String storeType;
 	
+	@Column(name="QUANTITY")
+	private int quantity;
+	
+	
+	@Column(name="PRODUCT_ID")
+	private String productId;
+	
 	@OneToOne
 	@JoinColumn(name = "ADDRESS_ID")
 	private Address address;
@@ -66,11 +73,34 @@ public class Store {
 		this.storeType = storeType;
 	}
 	
+	
+	
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	
+	public String getProductId() {
+		return productId;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+
 	@Override
 	public String toString() {
-		return "Store [storeId=" + storeId + ", storeName=" + storeName + ", storeType=" + storeType + "]";
+		return "Store [storeId=" + storeId + ", storeName=" + storeName + ", storeType=" + storeType + ", quantity="
+				+ quantity + ", productId=" + productId + ", address=" + address + "]";
 	}
+
 	
+
 	
 
 }
