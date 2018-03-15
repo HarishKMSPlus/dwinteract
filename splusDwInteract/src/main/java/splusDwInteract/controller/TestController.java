@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import splusDwInteract.model.Test;
 import splusDwInteract.service.SplusTestService;
 
-@RequestMapping("/testController")
+@RequestMapping("/test")
 @RestController
 public class TestController {
 
@@ -28,8 +28,9 @@ public class TestController {
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity getStoreById(@PathVariable String id){			
 
-		List<Test> test = splusTestService.getListOfStore(id);
+	//	List<Test> test = splusTestService.getListOfStore(id);
 
+		String test=id;
 		if (test == null) {
 			return new ResponseEntity("No products found", HttpStatus.NOT_FOUND);
 		}
