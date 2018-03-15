@@ -28,4 +28,6 @@ public interface SplusStoreService {
 	 */
 	
 	public Store getListOfStoreById(String id);
+
+	public List<Store> getListOfStoreByProductId(String id);
 }

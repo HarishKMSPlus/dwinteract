@@ -97,5 +97,20 @@ public class SplusStoreController implements Serializable{
 		}
 		return new ResponseEntity(storeList, HttpStatus.OK);
 	}
+	
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(value="/product/{id}", method=RequestMethod.GET)
+	public ResponseEntity getStoreByProductId(@PathVariable String id){	
+
+		System.out.println("in store controller");
+
+		List<Store> stores = splusStoreService.getListOfStoreByProductId(id);
+		
+		if (stores == null) {
+			return new ResponseEntity("No store found", HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity(stores, HttpStatus.OK);
+	}
 
 }

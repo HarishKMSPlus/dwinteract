@@ -2,7 +2,6 @@ package splusDwInteract.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +40,14 @@ public class SplusStoreServiceImpl implements SplusStoreService{
 		Store storeById = splusStoreRepository.findOne(id);
 		
 		return storeById;
+	}
+
+	@Override
+	public List<Store> getListOfStoreByProductId(String id) {
+		
+		List<Store> stores=splusStoreRepository.findByProductId(id);
+		
+		return stores;
 	}
 
 }
