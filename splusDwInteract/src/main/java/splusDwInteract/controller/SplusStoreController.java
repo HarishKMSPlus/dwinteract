@@ -1,5 +1,7 @@
 package splusDwInteract.controller;
 
+import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,10 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
+
+import splusDwInteract.model.ReturnParam;
 import splusDwInteract.model.Store;
 import splusDwInteract.service.SplusStoreService;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -85,6 +93,7 @@ public class SplusStoreController implements Serializable{
 
 		System.out.println("in store controller");
 
+		Store storeDetailById1 = splusStoreService.getListOfStoreById("1");
 		Store storeDetailById2 = splusStoreService.getListOfStoreById("2");
 		Store storeDetailById3 = splusStoreService.getListOfStoreById("3");
 		Store storeDetailById4 = splusStoreService.getListOfStoreById("4");
@@ -97,6 +106,7 @@ public class SplusStoreController implements Serializable{
 		Store storeDetailById11 = splusStoreService.getListOfStoreById("11");
 		
 		List<Store> storeList=new ArrayList<Store>();
+		storeList.add(storeDetailById1);
 		storeList.add(storeDetailById2);
 		storeList.add(storeDetailById3);
 		storeList.add(storeDetailById4);
@@ -144,17 +154,49 @@ public class SplusStoreController implements Serializable{
 		return new ResponseEntity("done", HttpStatus.OK);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public ResponseEntity saveCart(String json) {
-
-		System.out.println("cart >>"+json);
+	public ResponseEntity saveCart(InputStream  json) throws IOException {
 
 		
-
+		
+		 String result = IOUtils.toString(json);
+		 System.out.println("josn  "+result);
+		// List<ReturnParam> returnParams=(List<ReturnParam>) gson.fromJson(result, ReturnParam.class);
+		 
+		 
+		 JSONArray jsonArray = new JSONArray(result);
+		 List<ReturnParam> returnParams=new ArrayList<ReturnParam>();
+		 for(int i =0; i< jsonArray.length(); i++){
+			
+			 if(jsonArray.get(i) instanceof JSONObject){
+				 JSONObject jsnObj = (JSONObject)jsonArray.get(i);
+				 ReturnParam returnParam=new ReturnParam();
+				 returnParam.setStoreId((String)jsnObj.get("StoreId"));
+				 returnParam.setProductId((String)jsnObj.get("ProductId"));
+				 returnParam.setStoreInventory(Integer.parseInt((String) jsnObj.get("StoreInventory")));
+				 returnParam.setQuantity((int) jsnObj.get("Quantity"));
+				 returnParams.add(returnParam);
+				 
+			 }
+			 
+			 
+		 }
+		 
+		 System.out.println("returnParams   "+returnParams);
+		 List<Store> stores=new ArrayList<>();
+		 for(int i=0;i<returnParams.size();i++){
+			 
+			 Store store=splusStoreService.getStoreByStoreIdAndProductId(returnParams.get(i).getStoreId(),returnParams.get(i).getProductId() );
+			 System.out.println("Store :  "+store);
+			 stores.add(store);
+		 }
+		 
+		 
 		if (json == null) {
 			return new ResponseEntity("No Cart found", HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity("done", HttpStatus.OK);
+		return new ResponseEntity(stores, HttpStatus.OK);
 
 	}
 }

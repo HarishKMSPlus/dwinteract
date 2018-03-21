@@ -50,4 +50,12 @@ public class SplusStoreServiceImpl implements SplusStoreService{
 		return stores;
 	}
 
+	@Override
+	public Store getStoreByStoreIdAndProductId(String storeId, String productId) {
+		
+		
+		Store store=splusStoreRepository.findByStoreIdAndProductId(storeId, productId);
+		return store;
+	}
+
 }
