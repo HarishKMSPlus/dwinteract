@@ -11,14 +11,17 @@ insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1
 insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1) values('6','UK','ENGLAND','LONDON','Hammersmith,','09881','King Street');
 insert into address (ADDRESS_ID,COUNTRY,STATE,CITY,STREET,ZIP_CODE,ADDRESS_LINE1) values('7','INDIA','MUMBAI','Goregaon',' Yashodham, Goregaon East,','08081','Western Express Hwy');
 
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('1','Fig and Olive','Grocery Stores','1',5,'25502038');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('2','Croma','Electronics Stores','2',130,'25518769');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('3','Apollo Pharmacy','Chemist stores','3',0,'25565088');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('4','Francescas Collections','Garments stores','4',1,'25518958');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('5','Westfield London','Sports stores','5',100,'25502038');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('6','Kings Mall','Footwears stores','6',1022,'25518769');
-insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('7','Arhaus Furniture','Furniture','7',10222,'25502038');
-
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('1','Fig and Olive','Grocery Stores','1',5,'701642868064');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('2','Croma','Electronics Stores','2',130,'701642868071');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('3','Apollo Pharmacy','Chemist stores','3',0,'701642868088');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('4','Francescas Collections','Garments stores','4',1,'701642884415');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('5','Westfield London','Sports stores','5',100,'701642884422');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('6','Kings Mall','Footwears stores','6',12,'701642884439');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('7','Arhaus Furniture','Furniture','7',10,'701642868064');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('8','Arhaus Furniture1','Furniture','7',15,'701642868071');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('9','Arhaus Furniture2','Furniture','7',8,'701642884415');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('10','Arhaus Furniture3','Furniture','7',8,'701642868064');
+insert into store (STORE_ID,STORE_NAME,STORE_TYPE,ADDRESS_ID,QUANTITY,PRODUCT_ID)values('11','Arhaus Furniture4','Furniture','7',9,'701642884422');
 
 insert into product (PRODUCT_ID,PRODUCT_NAME,PRODUCT_DESCRIPTION) values('1','Oil','olive oil,good for health');
 insert into product (PRODUCT_ID,PRODUCT_NAME,PRODUCT_DESCRIPTION) values('2','Refridgerator','Samsung refridgerator');
