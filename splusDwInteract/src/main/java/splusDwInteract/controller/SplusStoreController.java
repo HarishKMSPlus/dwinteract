@@ -172,10 +172,10 @@ public class SplusStoreController implements Serializable{
 			 if(jsonArray.get(i) instanceof JSONObject){
 				 JSONObject jsnObj = (JSONObject)jsonArray.get(i);
 				 ReturnParam returnParam=new ReturnParam();
-				 returnParam.setStoreId((String)jsnObj.get("StoreId"));
-				 returnParam.setProductId((String)jsnObj.get("ProductId"));
-				 returnParam.setStoreInventory(Integer.parseInt((String) jsnObj.get("StoreInventory")));
-				 returnParam.setQuantity((int) jsnObj.get("Quantity"));
+				 returnParam.setStoreId((String)jsnObj.get("storeId"));
+				 returnParam.setProductId((String)jsnObj.get("productId"));
+				 returnParam.setStoreInventory(Integer.parseInt((String) jsnObj.get("storeInventory")));
+				 returnParam.setQuantity((int) jsnObj.get("quantity"));
 				 returnParams.add(returnParam);
 				 
 			 }
@@ -186,12 +186,16 @@ public class SplusStoreController implements Serializable{
 		 System.out.println("returnParams   "+returnParams);
 		 List<Store> stores=new ArrayList<>();
 		 for(int i=0;i<returnParams.size();i++){
+			 if(returnParams.get(i)!=null){
+				 Store store=splusStoreService.getStoreByStoreIdAndProductId(returnParams.get(i).getStoreId(),returnParams.get(i).getProductId() );
+				 store.setQuantity(returnParams.get(i).getStoreInventory()-returnParams.get(i).getQuantity());
+				 System.out.println("Store :  "+store);
+				 stores.add(store);
+			 }
 			 
-			 Store store=splusStoreService.getStoreByStoreIdAndProductId(returnParams.get(i).getStoreId(),returnParams.get(i).getProductId() );
-			 System.out.println("Store :  "+store);
-			 stores.add(store);
 		 }
 		 
+		 splusStoreService.update(stores);
 		 
 		if (json == null) {
 			return new ResponseEntity("No Cart found", HttpStatus.NOT_FOUND);

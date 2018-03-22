@@ -58,4 +58,13 @@ public class SplusStoreServiceImpl implements SplusStoreService{
 		return store;
 	}
 
+	@Override
+	public int update(List<Store> stores) {
+		
+		splusStoreRepository.save(stores);
+		
+		
+		return 1;
+	}
+
 }

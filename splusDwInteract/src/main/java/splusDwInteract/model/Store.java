@@ -18,9 +18,13 @@ import javax.persistence.Table;
 //@Data
 @Table(name="STORE")
 public class Store {
-
+	
 	@Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+	@Column(name="ID")
+	private String id;
+
+	
 	@Column(name="STORE_ID")
 	private String storeId;
 	
@@ -41,6 +45,17 @@ public class Store {
 	@JoinColumn(name = "ADDRESS_ID")
 	private Address address;
 	
+	
+	
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public Address getAddress() {
 		return address;
 	}
@@ -95,8 +110,8 @@ public class Store {
 
 	@Override
 	public String toString() {
-		return "Store [storeId=" + storeId + ", storeName=" + storeName + ", storeType=" + storeType + ", quantity="
-				+ quantity + ", productId=" + productId + ", address=" + address + "]";
+		return "Store [id=" + id + ", storeId=" + storeId + ", storeName=" + storeName + ", storeType=" + storeType
+				+ ", quantity=" + quantity + ", productId=" + productId + ", address=" + address + "]";
 	}
 
 	

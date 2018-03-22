@@ -32,4 +32,6 @@ public interface SplusStoreService {
 	public List<Store> getListOfStoreByProductId(String id);
 	
 	public Store getStoreByStoreIdAndProductId(String storeId,String productId);
+	
+	public int update(List<Store> stores);
 }

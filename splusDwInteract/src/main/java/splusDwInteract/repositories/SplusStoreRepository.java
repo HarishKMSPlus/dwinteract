@@ -33,5 +33,7 @@ public interface SplusStoreRepository extends JpaRepository<Store, String> {
 	List<Store> findByProductId(String id);
 	
 	Store findByStoreIdAndProductId(String storeId, String productId);
+	
+	
 
 }
